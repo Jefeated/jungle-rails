@@ -25,7 +25,11 @@
         </dl>
       </div>
     </div>
-
+  <div class="reviews"> 
+    <% if (reviews > 0) %>
+      <%= render @reviews %>
+    <% end %>
+  </div>
   </article>
 
 </section>
