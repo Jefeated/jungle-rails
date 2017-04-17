@@ -145,6 +145,12 @@ prod1.reviews.create!({
   product_id: 1,
   user_id: 1
 })
+prod1.reviews.create!({
+  rating: '1',
+  description: 'Thas NOT Awesum',
+  product_id: 1,
+  user_id: 1
+})
 prod2.reviews.create!({
   rating: '5',
   description: 'Supa Awesum',

@@ -26,8 +26,11 @@
       </div>
     </div>
   <div class="reviews"> 
-    <% if (reviews > 0) %>
-      <%= render @reviews %>
+    <% @product.reviews.each do |review| %>
+      <dt>Ratings</dt>
+      <dd><%= review.rating %></dd>
+      <dt>Review</dt>
+      <dd><%= review.description %></dd>
     <% end %>
   </div>
   </article>
