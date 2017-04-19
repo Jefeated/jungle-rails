@@ -25,12 +25,23 @@
         </dl>
       </div>
     </div>
+    <% if current_user %>
+      <%= form_tag "/products/#{@product.id}/reviews" do %>
+        Review: <%= select_tag(:rating, options_for_select([1,2,3,4,5])) %>
+        Comments: <%= text_area_tag :comments %>
+        <%= submit_tag "Submit" %>
+      <% end %>
+    <% end %>
+
   <div class="reviews"> 
-    <% @product.reviews.each do |review| %>
+    <% @review.each do |review| %>
       <dt>Ratings</dt>
       <dd><%= review.rating %></dd>
       <dt>Review</dt>
       <dd><%= review.description %></dd>
+      <% if current_user && review.user_id == current_user.id %>
+        <p><%= link_to 'Destroy', "/products/#{@product.id}/reviews/#{review.id}", method: :delete, data: { confirm: "Are you sure?" } %></p>
+      <% end %>
     <% end %>
   </div>
   </article>
