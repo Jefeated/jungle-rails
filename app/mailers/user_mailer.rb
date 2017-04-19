@@ -1,9 +1,9 @@
 class UserMailer < ApplicationMailer
     default from: 'no-reply@jungle.com'
- 
-  def welcome_email(user)
-    @user = user
+
+  def welcome_email(order)
+    @order = order
     @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'user.id')
+    mail(to: order.email, subject: "#{order.id}")
   end
 end

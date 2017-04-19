@@ -4,7 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    
+      <p> Order: <% @order.line_items.each do |item| %> </p>
+      <p>Product <%=item.product%></p>
+      <p>Quantity <%=item.quantity%></p>
+      <p>Price <%=item.item_price%></p>
+      <p>Total <%=item.item_price * item.quantity%></p>
+      <% end %>
       <p>Thanks for purchasing and have a great day!</p>
   </body>
 </html>
